@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaitPrefab: {fileID: 2033907700443760877, guid: 2c79440ed3e4149439b558be862ff514, type: 3}
   MainCamera: {fileID: 0}
+  FishPrefab: {fileID: 5020023180702562016, guid: e819376aee49f4bcca1a33ead060e7c3, type: 3}

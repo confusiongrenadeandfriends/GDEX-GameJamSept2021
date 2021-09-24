@@ -14,6 +14,8 @@ public class Fish : MonoBehaviour
     private Bait _targetedBait = null;
 
     private float _speed = 0.01f;
+    private bool _trackingRandomTarget = false;
+    private Vector3 _randomTarget = Vector3.zero;
 
     // Update is called once per frame
     void Update()
@@ -41,6 +43,34 @@ public class Fish : MonoBehaviour
             }
 
 
+        }
+        else
+        {
+            // lazily move around
+
+
+            if (_trackingRandomTarget == false)
+            {
+                Vector3 target = transform.position + Random.insideUnitSphere;
+                target.z = 0;
+                _randomTarget = target;
+                _trackingRandomTarget = true;
+            }
+            else
+            {
+                Vector3 distance = transform.position - _randomTarget;
+                distance.z = 0;
+                if (distance.magnitude < _speed)
+                {
+                    transform.position = _randomTarget;
+                    _trackingRandomTarget = false;
+                }
+                else
+                {
+                    transform.position -= distance.normalized * _speed *0.5f;
+                }
+
+            }
         }
     }
 
