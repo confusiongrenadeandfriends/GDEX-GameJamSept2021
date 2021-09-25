@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-
+    public GameObject RockPrefab;
     public GameObject BaitPrefab = null;
     public Camera MainCamera = null;
     public GameObject FishPrefab = null;
     private Fish _fish = null;
     private int _baitQuantity = 3;
+    private int _rockQuantity = 3;
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,6 +32,13 @@ public class InputManager : MonoBehaviour
                 _fish.FollowBait(bait);
             }
         }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            if (_rockQuantity > 0)
+            {
+                SpawnRock();
+            }
+        }
     }
 
     private Bait SpawnBait()
@@ -42,5 +50,15 @@ public class InputManager : MonoBehaviour
         worldPos.z = 1f;
         bait.transform.position = worldPos;
         return bait.GetComponent<Bait>();
+    }
+
+    private void SpawnRock()
+    {
+        _rockQuantity--;
+        GameObject rock = Instantiate(RockPrefab, transform);
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
+        worldPos.z = 1f;
+        rock.transform.position = worldPos;
     }
 }
