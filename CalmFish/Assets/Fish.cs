@@ -79,6 +79,9 @@ public class Fish : MonoBehaviour
         _targetedBait = bait;
     }
 
-
-
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+        transform.position -= -direction;
+    }
 }
