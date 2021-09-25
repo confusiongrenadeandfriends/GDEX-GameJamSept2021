@@ -10,7 +10,7 @@ public class Rock : MonoBehaviour
     {
         GameObject go = Instantiate(Ripple, transform);
         go.transform.position = transform.position;
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 2);
     }
 
     private void Update()
