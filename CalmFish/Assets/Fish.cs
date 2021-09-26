@@ -72,6 +72,12 @@ public class Fish : MonoBehaviour
         {
             _speed /= 2f;
         }
+
+        LillyPad lilly = collision.GetComponent<LillyPad>();
+        if (ReferenceEquals(lilly, null) == false)
+        {
+            _targetedBait = null;
+        }
     }
 
 
