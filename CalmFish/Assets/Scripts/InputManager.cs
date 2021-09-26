@@ -18,21 +18,17 @@ public class InputManager : MonoBehaviour
     //private Minnow[] _minnow = null;
     public int _baitQuantity = 3;
     public int _rockQuantity = 3;
+    public BaitDisplay baitDisplay = null;
+    public BaitDisplay rockDisplay = null;
     public Bait CurrentBait { get; private set; } = null;
     // Start is called before the first frame update
     private void Start()
     {
-
-
         if (baitEvent == null)
             baitEvent = new UnityEvent();
 
-        //_fish = Instantiate(FishPrefab, transform).GetComponent<Fish>();
-        //_minnow = Instantiate(MinnowPrefab, transform).GetComponent<Minnow>();
-
-        //baitEvent = new Event();
-        // baitEvent.Invoke
-
+        baitDisplay.DisplayBait(_baitQuantity);
+        rockDisplay.DisplayBait(_rockQuantity);
     }
 
     // Update is called once per frame
@@ -43,10 +39,8 @@ public class InputManager : MonoBehaviour
             if (_baitQuantity > 0)
             {
                 Bait bait = SpawnBait();
-               // _fish.FollowBait(bait);
                 CurrentBait = bait;
                 baitEvent.Invoke();
-               // _minnow.FollowBait(bait);
             }
         }
         else if (Input.GetMouseButtonDown(1))
@@ -61,6 +55,8 @@ public class InputManager : MonoBehaviour
     private Bait SpawnBait()
     { 
         _baitQuantity--;
+
+        baitDisplay.DecrementBaitDisplay(_baitQuantity);
         GameObject bait = Instantiate(BaitPrefab, transform);
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
@@ -72,6 +68,7 @@ public class InputManager : MonoBehaviour
     private void SpawnRock()
     {
         _rockQuantity--;
+        rockDisplay.DecrementBaitDisplay(_rockQuantity);
         GameObject rock = Instantiate(RockPrefab, transform);
         Vector3 mousePos = Input.mousePosition;
         Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
