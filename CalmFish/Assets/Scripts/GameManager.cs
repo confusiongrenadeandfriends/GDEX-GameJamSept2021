@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
     public static GameManager Instance;
     [SerializeField]
-    private TextMeshProUGUI scoreText;
+    private Text scoreText;
     private int _score;
     public int Score
     {
