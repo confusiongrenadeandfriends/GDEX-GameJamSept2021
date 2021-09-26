@@ -6,6 +6,8 @@ public class Bait : MonoBehaviour
 {
 
     public GameObject Ripple = null;
+
+    public bool IsEaten { get; private set; } = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,10 @@ public class Bait : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EatBait()
+    {
+        IsEaten = true;
     }
 }

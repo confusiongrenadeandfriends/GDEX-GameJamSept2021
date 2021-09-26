@@ -22,7 +22,7 @@ public class Fish : MonoBehaviour
     {
         // randomly move
 
-        if (_targetedBait)
+        if (_targetedBait  && _targetedBait.IsEaten == false)
         {
             ChaseAfterBait();
         }
@@ -48,6 +48,7 @@ public class Fish : MonoBehaviour
         if (distance.magnitude < _speed)
         {
             transform.position = _targetedBait.transform.position;
+            _targetedBait.EatBait();
             _targetedBait.gameObject.SetActive(false);
 
             // win level
@@ -64,6 +65,24 @@ public class Fish : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Reeds temp = collision.GetComponent<Reeds>();
+        if (ReferenceEquals(temp, null) == false)
+        {
+            _speed /= 2f;
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Reeds temp = collision.GetComponent<Reeds>();
+        if (ReferenceEquals(temp, null) == false)
+        {
+            _speed *= 2f;
+        }
+    }
 
 
     // randomly move when there is no bait to chase

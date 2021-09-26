@@ -48,6 +48,7 @@ public class Minnow : MonoBehaviour
         if (distance.magnitude < _speed)
         {
             transform.position = _targetedBait.transform.position;
+            _targetedBait.EatBait();
             _targetedBait.gameObject.SetActive(false);
 
             // win level
@@ -71,6 +72,26 @@ public class Minnow : MonoBehaviour
         Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
         transform.position -= -direction;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Reeds temp = collision.GetComponent<Reeds>();
+        if (ReferenceEquals(temp, null) == false)
+        {
+            _speed /= 2f;
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Reeds temp = collision.GetComponent<Reeds>();
+        if (ReferenceEquals(temp, null) == false)
+        {
+            _speed *= 2f;
+        }
+    }
+
 
     // randomly move when there is no bait to chase
     private void MoveRandomly()
