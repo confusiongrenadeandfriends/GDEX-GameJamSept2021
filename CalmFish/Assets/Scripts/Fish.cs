@@ -23,7 +23,7 @@ public class Fish : MonoBehaviour
     private Bait _targetedBait = null;
     private Level level;
 
-    protected float _speed = 0.01f;
+    protected float _speed = 5.0f;
     private bool _trackingRandomTarget = false;
     private Vector3 _randomTarget = Vector3.zero;
 
@@ -55,7 +55,7 @@ public class Fish : MonoBehaviour
         Vector3 distance = transform.position - _targetedBait.transform.position;
 
         distance.z = 0;
-        if (distance.magnitude < _speed)
+        if (distance.magnitude < (_speed * Time.deltaTime))
         {
             transform.position = _targetedBait.transform.position;
             _targetedBait.EatBait();
@@ -76,7 +76,7 @@ public class Fish : MonoBehaviour
         }
         else
         {
-            transform.position -= distance.normalized * _speed;
+            transform.position -= distance.normalized * _speed * Time.deltaTime;
         }
     }
 
@@ -109,7 +109,7 @@ public class Fish : MonoBehaviour
             }
             else
             {
-                direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f;
+                direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f * Time.deltaTime;
 
                 transform.position -= -direction;
             }
@@ -142,14 +142,14 @@ public class Fish : MonoBehaviour
         {
             Vector3 distance = transform.position - _randomTarget;
             distance.z = 0;
-            if (distance.magnitude < _speed)
+            if (distance.magnitude < (_speed * Time.deltaTime))
             {
                 transform.position = _randomTarget;
                 _trackingRandomTarget = false;
             }
             else
             {
-                transform.position -= distance.normalized * _speed * 0.5f;
+                transform.position -= distance.normalized * _speed * 0.5f * Time.deltaTime;
             }
 
         }
