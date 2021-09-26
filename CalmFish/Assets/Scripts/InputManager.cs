@@ -48,7 +48,8 @@ public class InputManager : MonoBehaviour
             if (_baitQuantity > 0)
             {
                 Bait bait = SpawnBait();
-               // _fish.FollowBait(bait);
+                // _fish.FollowBait(bait);
+                if (CurrentBait) Destroy(CurrentBait.gameObject);
                 CurrentBait = bait;
                 baitEvent.Invoke();
                // _minnow.FollowBait(bait);
