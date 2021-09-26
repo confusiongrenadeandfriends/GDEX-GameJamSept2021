@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public GameObject RockPrefab;
+    public GameObject RockPrefab = null;
     public GameObject BaitPrefab = null;
     public Camera MainCamera = null;
     public GameObject FishPrefab = null;
+    public GameObject MinnowPrefab = null;
     private Fish _fish = null;
+    private Minnow _minnow = null;
     private int _baitQuantity = 3;
     private int _rockQuantity = 3;
     // Start is called before the first frame update
@@ -16,6 +18,7 @@ public class InputManager : MonoBehaviour
     {
 
         _fish = Instantiate(FishPrefab, transform).GetComponent<Fish>();
+        _minnow = Instantiate(MinnowPrefab, transform).GetComponent<Minnow>();
 
 
 
@@ -30,6 +33,7 @@ public class InputManager : MonoBehaviour
             {
                 Bait bait = SpawnBait();
                 _fish.FollowBait(bait);
+                _minnow.FollowBait(bait);
             }
         }
         else if (Input.GetMouseButtonDown(1))

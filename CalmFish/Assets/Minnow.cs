@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fish : MonoBehaviour
+public class Minnow : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
 
     private Bait _targetedBait = null;
 
-    protected float _speed = 0.01f;
+    protected float _speed = 0.02f;
     private bool _trackingRandomTarget = false;
     private Vector3 _randomTarget = Vector3.zero;
 
@@ -65,6 +65,12 @@ public class Fish : MonoBehaviour
     }
 
 
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+        transform.position -= -direction;
+    }
 
     // randomly move when there is no bait to chase
     private void MoveRandomly()
