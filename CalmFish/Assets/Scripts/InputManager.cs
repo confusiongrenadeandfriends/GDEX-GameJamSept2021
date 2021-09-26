@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
-
-
+    internal static InputManager Instance;
     public UnityEvent baitEvent;
     
     public GameObject RockPrefab = null;
@@ -19,7 +18,13 @@ public class InputManager : MonoBehaviour
     public int _baitQuantity = 3;
     public int _rockQuantity = 3;
     public Bait CurrentBait { get; private set; } = null;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        Destroy(gameObject);
+    }
+
     private void Start()
     {
 

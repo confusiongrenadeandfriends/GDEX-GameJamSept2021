@@ -1,16 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
+    public static GameManager Instance;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
     private int _score;
+    public int Score
+    {
+        get => _score;
+        set
+        {
+            _score = value;
+            scoreText.text = "Score: " + value.ToString();
+        }
+    }
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
     }
 
     private void Update()

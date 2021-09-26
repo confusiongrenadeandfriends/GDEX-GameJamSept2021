@@ -5,23 +5,13 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public GameObject winText;
-    private GameManager gameManager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void winLevel()
     {
         winText.SetActive(true);
+        int baitScore = InputManager.Instance._baitQuantity * 100;
+        int rockScore = InputManager.Instance._rockQuantity * 50;
+        GameManager.Instance.Score += baitScore + rockScore + 500;
         StartCoroutine(waitThenLoadNextLevel());
     }
 
@@ -29,6 +19,6 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
 
-        gameManager.LoadNextLevel();
+        GameManager.Instance.LoadNextLevel();
     }
 }
