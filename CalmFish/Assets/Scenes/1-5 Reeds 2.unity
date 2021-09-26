@@ -2180,7 +2180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Reeds slow down fish when they pass through  '
+  m_Text: Use reeds to your advantage!
 --- !u!222 &2085902539
 CanvasRenderer:
   m_ObjectHideFlags: 0
