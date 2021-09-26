@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
     public int _baitQuantity = 3;
     public int _rockQuantity = 3;
     public Bait CurrentBait { get; private set; } = null;
+    internal bool Won = false;
 
     private void Awake()
     {
@@ -60,6 +61,15 @@ public class InputManager : MonoBehaviour
             if (_rockQuantity > 0)
             {
                 SpawnRock();
+            }
+        }
+
+        if (CurrentBait != null && CurrentBait.gameObject.activeSelf == false)
+        {
+            Debug.Log($"Bait: {_baitQuantity}");
+            if (!Won && _baitQuantity <= 0)
+            {
+                GameManager.Instance.ReloadLevel();
             }
         }
     }

@@ -59,14 +59,18 @@ public class Fish : MonoBehaviour
         {
             transform.position = _targetedBait.transform.position;
             _targetedBait.EatBait();
-            _targetedBait.gameObject.SetActive(false);
 
             if (_targetFish)
             {
+                InputManager.Instance.Won = true;
+                int baitScore = InputManager.Instance._baitQuantity * 10;
+                int rockScore = InputManager.Instance._rockQuantity * 20;
+                GameManager.Instance.Score += baitScore + rockScore + 100;
                 level.winLevel();
                 Debug.Log("win");
             }
 
+            _targetedBait.gameObject.SetActive(false);
             // disable throwing objects
 
         }
