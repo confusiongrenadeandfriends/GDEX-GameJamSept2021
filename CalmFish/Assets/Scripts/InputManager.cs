@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) Instance = this;
-        Destroy(gameObject);
+        else Destroy(gameObject);
     }
 
     private void Start()

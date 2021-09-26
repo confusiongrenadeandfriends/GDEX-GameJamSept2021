@@ -5,14 +5,31 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public GameObject winText;
+    public GameObject tutorialText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartCoroutine(waitThenDisableTutorial());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public void winLevel()
     {
         winText.SetActive(true);
-        int baitScore = InputManager.Instance._baitQuantity * 100;
-        int rockScore = InputManager.Instance._rockQuantity * 50;
-        GameManager.Instance.Score += baitScore + rockScore + 500;
         StartCoroutine(waitThenLoadNextLevel());
+    }
+
+    private IEnumerator waitThenDisableTutorial()
+    {
+        yield return new WaitForSeconds(4);
+
+        tutorialText.SetActive(false);
     }
 
     private IEnumerator waitThenLoadNextLevel()
