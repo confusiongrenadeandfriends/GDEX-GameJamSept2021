@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
-
-
+    internal static InputManager Instance;
     public UnityEvent baitEvent;
     
     public GameObject RockPrefab = null;
@@ -21,7 +20,13 @@ public class InputManager : MonoBehaviour
     public BaitDisplay baitDisplay = null;
     public BaitDisplay rockDisplay = null;
     public Bait CurrentBait { get; private set; } = null;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
     private void Start()
     {
         if (baitEvent == null)
@@ -39,6 +44,8 @@ public class InputManager : MonoBehaviour
             if (_baitQuantity > 0)
             {
                 Bait bait = SpawnBait();
+                // _fish.FollowBait(bait);
+                if (CurrentBait) Destroy(CurrentBait.gameObject);
                 CurrentBait = bait;
                 baitEvent.Invoke();
             }

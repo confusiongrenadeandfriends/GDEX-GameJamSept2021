@@ -6,12 +6,10 @@ public class Level : MonoBehaviour
 {
     public GameObject winText;
     public GameObject tutorialText;
-    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         StartCoroutine(waitThenDisableTutorial());
     }
 
@@ -38,6 +36,6 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
 
-        gameManager.LoadNextLevel();
+        GameManager.Instance.LoadNextLevel();
     }
 }

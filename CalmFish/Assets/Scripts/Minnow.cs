@@ -64,6 +64,7 @@ public class Minnow : MonoBehaviour
             transform.position = _targetedBait.transform.position;
             _targetedBait.EatBait();
             _targetedBait.gameObject.SetActive(false);
+            _targetedBait = null;
 
             // win level
 
