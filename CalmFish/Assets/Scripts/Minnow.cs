@@ -36,6 +36,9 @@ public class Minnow : MonoBehaviour
     {
         // randomly move
 
+        if (InLillyPad)
+        { _targetedBait = null; }
+
         if (_targetedBait)
         {
             ChaseAfterBait();
@@ -92,12 +95,20 @@ public class Minnow : MonoBehaviour
         }
     }
 
+    private bool InLillyPad = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Reeds temp = collision.GetComponent<Reeds>();
         if (ReferenceEquals(temp, null) == false)
         {
             _speed /= 10f;
+        }
+
+        LillyPad lilly = collision.GetComponent<LillyPad>();
+        if (ReferenceEquals(lilly, null) == false)
+        {
+            _targetedBait = null;
+            InLillyPad = true;
         }
 
         RockHazard rock = collision.GetComponent<RockHazard>();
@@ -129,6 +140,13 @@ public class Minnow : MonoBehaviour
         if (ReferenceEquals(temp, null) == false)
         {
             _speed *= 2f;
+        }
+
+        LillyPad lilly = collision.GetComponent<LillyPad>();
+        if (ReferenceEquals(lilly, null) == false)
+        {
+            _targetedBait = null;
+            InLillyPad = false;
         }
     }
 
