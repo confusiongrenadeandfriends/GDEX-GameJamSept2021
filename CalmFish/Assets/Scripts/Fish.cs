@@ -7,11 +7,12 @@ public class Fish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        level = GameObject.Find("Level").GetComponent<Level>();
     }
 
-
+    public bool _targetFish;
     private Bait _targetedBait = null;
+    private Level level;
 
     protected float _speed = 0.01f;
     private bool _trackingRandomTarget = false;
@@ -51,13 +52,14 @@ public class Fish : MonoBehaviour
             _targetedBait.EatBait();
             _targetedBait.gameObject.SetActive(false);
 
-            // win level
+            if (_targetFish)
+            {
+                level.winLevel();
+                Debug.Log("win");
+            }
 
             // disable throwing objects
 
-            // display victory messgae
-
-            // Load next level
         }
         else
         {

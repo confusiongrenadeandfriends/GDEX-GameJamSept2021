@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5206424952718148340}
   - component: {fileID: 3690164847931558219}
-  - component: {fileID: 1459595060435522675}
-  - component: {fileID: -6797265411102351144}
+  - component: {fileID: 8388110983735249764}
+  - component: {fileID: -2453171536658981823}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: Bait
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033907700443760877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b8518bf694cdf6d45b399cc502eb4b3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ad8e73b56dba416193e63ae12dfa825, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1459595060435522675
+--- !u!114 &8388110983735249764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2033907700443760877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e11a9667ce9126468ea05afe55bf62b, type: 3}
+  m_Script: {fileID: 11500000, guid: 22c523d121fd04265ae37f74dc3b9290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Ripple: {fileID: 2406054943333329741, guid: 9fa54a18549b44e70b5df402651e351b, type: 3}
---- !u!82 &-6797265411102351144
+--- !u!82 &-2453171536658981823
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6d2820d5ed7238341b33d7302ddee5b9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cece422bdcfe2a14ea0b20470a467976, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
