@@ -78,6 +78,15 @@ public class Fish : MonoBehaviour
         {
             _targetedBait = null;
         }
+        
+        RockHazard rock = collision.GetComponent<RockHazard>();
+        if (ReferenceEquals(rock, null) == false)
+        {
+            Debug.Log("babby");
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f;
+            transform.position -= -direction;
+        }
+
     }
 
 
