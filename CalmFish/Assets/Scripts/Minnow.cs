@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Minnow : MonoBehaviour
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
 
+        inputManager = GameObject.Find("Game").GetComponent<InputManager>();
+
+        inputManager.baitEvent.AddListener(followBait);
+
+
+
     }
 
 
+    void followBait()
+    {
+        FollowBait(inputManager.CurrentBait);
+    }
+
     private Bait _targetedBait = null;
 
+    private InputManager inputManager = null;
     protected float _speed = 0.02f;
     private bool _trackingRandomTarget = false;
     private Vector3 _randomTarget = Vector3.zero;
@@ -69,8 +83,12 @@ public class Minnow : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
-        transform.position -= -direction;
+        Ripple ripple = collision.GetComponent<Ripple>();
+        if (ripple && ripple.rippleParent == Ripple.RippleParent.Rock)
+        {
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            transform.position -= -direction;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,6 +97,27 @@ public class Minnow : MonoBehaviour
         if (ReferenceEquals(temp, null) == false)
         {
             _speed /= 2f;
+        }
+
+        RockHazard rock = collision.GetComponent<RockHazard>();
+        if (ReferenceEquals(rock, null) == false)
+        {
+            Vector3 direction;
+            if (rock.IsBorder)
+            {
+                direction = (transform.position - transform.parent.position).normalized;
+                Vector3 target = direction + Random.insideUnitSphere;
+                target.z = 0;
+                _randomTarget = transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
+                _trackingRandomTarget = true;
+
+            }
+            else
+            {
+                direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f;
+
+                transform.position -= -direction;
+            }
         }
     }
 

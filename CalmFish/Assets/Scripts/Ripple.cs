@@ -7,12 +7,28 @@ public class Ripple : MonoBehaviour
     private float colliderGrowth = 1;
     private float _maxScale = 10;
     private CircleCollider2D circleCollider;
+    public RippleParent rippleParent { get; private set; }
+//public RippleParent 
+
+    public enum RippleParent
+    {
+        Rock,
+        Bait
+    }
 
     private void Awake()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        if (transform.parent.name.ToLower().Contains("bait")) _maxScale = 10;
-        else if (transform.parent.name.ToLower().Contains("rock")) _maxScale = 20;
+        if (transform.parent.name.ToLower().Contains("bait"))
+        {
+            rippleParent = RippleParent.Bait;
+            _maxScale = 10;
+        }
+        else if (transform.parent.name.ToLower().Contains("rock"))
+        {
+            rippleParent = RippleParent.Rock;
+            _maxScale = 20;
+        }
     }
 
     public Vector3 GrowthSpeed = new Vector3(0.1f, 0.1f, 0.1f);

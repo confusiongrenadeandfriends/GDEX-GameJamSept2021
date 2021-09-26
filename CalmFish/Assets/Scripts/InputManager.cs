@@ -1,26 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
+
+
+    public UnityEvent baitEvent;
+    
     public GameObject RockPrefab = null;
     public GameObject BaitPrefab = null;
     public Camera MainCamera = null;
     public GameObject FishPrefab = null;
     public GameObject MinnowPrefab = null;
     private Fish _fish = null;
-    private Minnow _minnow = null;
-    private int _baitQuantity = 3;
-    private int _rockQuantity = 3;
+    //private Minnow[] _minnow = null;
+    public int _baitQuantity = 3;
+    public int _rockQuantity = 3;
+    public Bait CurrentBait { get; private set; } = null;
     // Start is called before the first frame update
     private void Start()
     {
 
-        _fish = Instantiate(FishPrefab, transform).GetComponent<Fish>();
-        _minnow = Instantiate(MinnowPrefab, transform).GetComponent<Minnow>();
 
+        if (baitEvent == null)
+            baitEvent = new UnityEvent();
 
+        //_fish = Instantiate(FishPrefab, transform).GetComponent<Fish>();
+        //_minnow = Instantiate(MinnowPrefab, transform).GetComponent<Minnow>();
+
+        //baitEvent = new Event();
+        // baitEvent.Invoke
 
     }
 
@@ -32,8 +43,10 @@ public class InputManager : MonoBehaviour
             if (_baitQuantity > 0)
             {
                 Bait bait = SpawnBait();
-                _fish.FollowBait(bait);
-                _minnow.FollowBait(bait);
+               // _fish.FollowBait(bait);
+                CurrentBait = bait;
+                baitEvent.Invoke();
+               // _minnow.FollowBait(bait);
             }
         }
         else if (Input.GetMouseButtonDown(1))

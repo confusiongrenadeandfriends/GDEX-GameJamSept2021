@@ -8,8 +8,17 @@ public class Fish : MonoBehaviour
     void Start()
     {
         level = GameObject.Find("Level").GetComponent<Level>();
+        _inputManager = GameObject.Find("Game").GetComponent<InputManager>();
+        _inputManager.baitEvent.AddListener(followBait);
     }
 
+
+    void followBait()
+    {
+        FollowBait(_inputManager.CurrentBait);
+    }
+
+    private InputManager _inputManager = null;
     public bool _targetFish;
     private Bait _targetedBait = null;
     private Level level;
@@ -84,9 +93,22 @@ public class Fish : MonoBehaviour
         RockHazard rock = collision.GetComponent<RockHazard>();
         if (ReferenceEquals(rock, null) == false)
         {
-            Debug.Log("babby");
-            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f;
-            transform.position -= -direction;
+            Vector3 direction;
+            if (rock.IsBorder)
+            {
+                direction = (transform.position - transform.parent.position).normalized;
+                Vector3 target = direction + Random.insideUnitSphere;
+                target.z = 0;
+                _randomTarget = transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
+                _trackingRandomTarget = true;
+
+            }
+            else
+            {
+                direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f;
+
+                transform.position -= -direction;
+            }
         }
 
     }
