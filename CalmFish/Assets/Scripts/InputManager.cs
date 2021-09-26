@@ -61,7 +61,6 @@ public class InputManager : MonoBehaviour
 
         if (CurrentBait != null && CurrentBait.gameObject.activeSelf == false)
         {
-            Debug.Log($"Bait: {_baitQuantity}");
             if (!Won && _baitQuantity <= 0)
             {
                 GameManager.Instance.ReloadLevel();
