@@ -24,7 +24,8 @@ public class Minnow : MonoBehaviour
     private Bait _targetedBait = null;
 
     private InputManager inputManager = null;
-    protected float _speed = 10.0f;
+    [SerializeField]
+    protected float _speed = 7.0f;
     private bool _trackingRandomTarget = false;
     private Vector3 _randomTarget = Vector3.zero;
 

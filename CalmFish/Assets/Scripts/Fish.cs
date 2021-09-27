@@ -23,7 +23,8 @@ public class Fish : MonoBehaviour
     private Bait _targetedBait = null;
     private Level level;
 
-    protected float _speed = 5.0f;
+    [SerializeField]
+    protected float _speed = 3.0f;
     private bool _trackingRandomTarget = false;
     private Vector3 _randomTarget = Vector3.zero;
 
