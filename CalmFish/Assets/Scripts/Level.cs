@@ -5,7 +5,6 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public GameObject winText;
-    private GameManager gameManager;
     private bool levelDone;
     public GameObject tutorialText;
     private RandomLevel randomLevel;
@@ -13,7 +12,6 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game").GetComponent<GameManager>();
         levelDone = false;
         if (!TryGetComponent(out randomLevel)) StartCoroutine(waitThenDisableTutorial());
     }
