@@ -78,7 +78,9 @@ public class InputManager : MonoBehaviour
         //    Debug.Log($"{isNull}, {isActive}, {_baitQuantity}");
         //}
 
-        if (CurrentBait != null && CurrentBait.gameObject.activeSelf == false)
+        bool baitEaten = CurrentBait != null && CurrentBait.gameObject.activeSelf == false;
+        bool baitLost = CurrentBait == null && _baitQuantity <= 0;
+        if (baitEaten || baitLost)
         {
             if (FindObjectOfType<RandomLevel>() && _baitQuantity <= 0)
             {

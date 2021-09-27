@@ -36,12 +36,11 @@ public class GameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("StartButton").GetComponent<Button>().onClick.AddListener(StartGame);
             GameObject.FindGameObjectWithTag("QuitButton").GetComponent<Button>().onClick.AddListener(QuitGame);
         }
+
+        GameObject.FindGameObjectWithTag("Score").GetComponent<Text>().text = "Score: " + Score.ToString();
+
         GameObject resetButton = GameObject.FindGameObjectWithTag("ResetButton");
-        if (resetButton)
-        {
-            Debug.Log("Reset Button");
-            resetButton.GetComponent<Button>().onClick.AddListener(ReloadLevel);
-        }
+        if (resetButton) resetButton.GetComponent<Button>().onClick.AddListener(ReloadLevel);
     }
 
     private void Update()
