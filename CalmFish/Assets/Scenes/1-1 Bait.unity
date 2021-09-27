@@ -317,7 +317,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Click to cast bait.  \nFish are attracted to bait and head directly toward
-    it.  "
+    it.  Try to catch the big fish!"
 --- !u!222 &404048805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -521,11 +521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3645104628359095688, guid: 8edd68289cc5c40f0bbdb01f4ab2e1cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.15
+      value: 16.15
       objectReference: {fileID: 0}
     - target: {fileID: 3645104628359095688, guid: 8edd68289cc5c40f0bbdb01f4ab2e1cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.42
+      value: -8.42
       objectReference: {fileID: 0}
     - target: {fileID: 3645104628359095688, guid: 8edd68289cc5c40f0bbdb01f4ab2e1cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -747,11 +747,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6850850340112278798, guid: 8cc777036efba4c5a86eaad109412234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.15
+      value: -16.15
       objectReference: {fileID: 0}
     - target: {fileID: 6850850340112278798, guid: 8cc777036efba4c5a86eaad109412234, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.42
+      value: -8.42
       objectReference: {fileID: 0}
     - target: {fileID: 6850850340112278798, guid: 8cc777036efba4c5a86eaad109412234, type: 3}
       propertyPath: m_LocalPosition.z
