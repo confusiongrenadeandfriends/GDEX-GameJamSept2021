@@ -587,6 +587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870309, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6587208431266870310, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
       propertyPath: m_Name
       value: RockBarrier (3)
@@ -882,6 +886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870309, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6587208431266870310, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
       propertyPath: m_Name
       value: RockBarrier (2)
@@ -948,6 +956,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870309, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6587208431266870310, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
       propertyPath: m_Name
       value: RockBarrier (1)
@@ -1012,6 +1024,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587208431266870306, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870309, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6587208431266870310, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
