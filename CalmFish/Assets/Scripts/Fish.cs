@@ -10,6 +10,7 @@ public class Fish : MonoBehaviour
         level = GameObject.Find("Level").GetComponent<Level>();
         _inputManager = GameObject.Find("Game").GetComponent<InputManager>();
         _inputManager.baitEvent.AddListener(followBait);
+        renderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
 
@@ -22,6 +23,7 @@ public class Fish : MonoBehaviour
     public bool _targetFish;
     private Bait _targetedBait = null;
     private Level level;
+    private SpriteRenderer renderer;
 
     [SerializeField]
     protected float _speed = 3.0f;
@@ -76,6 +78,14 @@ public class Fish : MonoBehaviour
         }
         else
         {
+            if (transform.position.x > _targetedBait.transform.position.x)
+            {
+                renderer.flipX = true;
+            }
+            else
+            {
+                renderer.flipX = false;
+            }
             transform.position -= distance.normalized * _speed * Time.deltaTime;
         }
     }
@@ -131,6 +141,14 @@ public class Fish : MonoBehaviour
     // randomly move when there is no bait to chase
     private void MoveRandomly()
     {
+        if (transform.position.x > _randomTarget.x)
+        {
+            renderer.flipX = true;
+        }
+        else
+        {
+            renderer.flipX = false;
+        }
         if (_trackingRandomTarget == false)
         {
             Vector3 target = transform.position + Random.insideUnitSphere;
