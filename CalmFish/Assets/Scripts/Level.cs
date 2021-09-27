@@ -5,11 +5,15 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public GameObject winText;
+    private GameManager gameManager;
+    private bool levelDone;
     public GameObject tutorialText;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game").GetComponent<GameManager>();
+        levelDone = false;
         StartCoroutine(waitThenDisableTutorial());
     }
 
@@ -21,8 +25,12 @@ public class Level : MonoBehaviour
 
     public void winLevel()
     {
-        winText.SetActive(true);
-        StartCoroutine(waitThenLoadNextLevel());
+        if (!levelDone)
+        {
+            winText.SetActive(true);
+            levelDone = true;
+            StartCoroutine(waitThenLoadNextLevel());
+        }
     }
 
     private IEnumerator waitThenDisableTutorial()
