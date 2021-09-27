@@ -7,21 +7,16 @@ public class InputManager : MonoBehaviour
     public GameObject RockPrefab = null;
     public GameObject BaitPrefab = null;
     public Camera MainCamera = null;
-    public GameObject FishPrefab = null;
     public GameObject MinnowPrefab = null;
-    private Fish _fish = null;
+    public Fish _fish = null;
+    public List<GameObject> noBaitZones;
     private Minnow _minnow = null;
     private int _baitQuantity = 3;
     private int _rockQuantity = 3;
     // Start is called before the first frame update
     private void Start()
     {
-
-        _fish = Instantiate(FishPrefab, transform).GetComponent<Fish>();
         _minnow = Instantiate(MinnowPrefab, transform).GetComponent<Minnow>();
-
-
-
     }
 
     // Update is called once per frame
@@ -29,7 +24,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_baitQuantity > 0)
+            if (_baitQuantity > 0 && noBaitZones.TrueForAll(obj => !RectTransformUtility.RectangleContainsScreenPoint(obj.GetComponent<RectTransform>(), Input.mousePosition, MainCamera)))
             {
                 Bait bait = SpawnBait();
                 _fish.FollowBait(bait);

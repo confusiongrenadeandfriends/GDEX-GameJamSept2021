@@ -55,7 +55,6 @@ public class Fish : MonoBehaviour
             if (_targetFish)
             {
                 level.winLevel();
-                Debug.Log("win");
             }
 
             // disable throwing objects

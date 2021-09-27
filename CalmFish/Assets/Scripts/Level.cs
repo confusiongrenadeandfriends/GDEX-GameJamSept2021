@@ -6,11 +6,13 @@ public class Level : MonoBehaviour
 {
     public GameObject winText;
     private GameManager gameManager;
+    private bool levelDone;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("Game").GetComponent<GameManager>();
+        levelDone = false;
     }
 
     // Update is called once per frame
@@ -21,8 +23,12 @@ public class Level : MonoBehaviour
 
     public void winLevel()
     {
-        winText.SetActive(true);
-        StartCoroutine(waitThenLoadNextLevel());
+        if (!levelDone)
+        {
+            winText.SetActive(true);
+            levelDone = true;
+            StartCoroutine(waitThenLoadNextLevel());
+        }
     }
 
     private IEnumerator waitThenLoadNextLevel()
