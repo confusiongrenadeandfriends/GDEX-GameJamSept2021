@@ -5,17 +5,16 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public GameObject winText;
+    private GameManager gameManager;
+    private bool levelDone;
     public GameObject tutorialText;
-    private RandomLevel randomLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (TryGetComponent(out randomLevel))
-        {
-            Debug.Log("Found RandomLevel");
-        }
-        else StartCoroutine(waitThenDisableTutorial());
+        gameManager = GameObject.Find("Game").GetComponent<GameManager>();
+        levelDone = false;
+        StartCoroutine(waitThenDisableTutorial());
     }
 
     // Update is called once per frame
@@ -26,13 +25,10 @@ public class Level : MonoBehaviour
 
     public void winLevel()
     {
-        if (randomLevel)
-        {
-            randomLevel.ReloadLevel();
-        }
-        else
+        if (!levelDone)
         {
             winText.SetActive(true);
+            levelDone = true;
             StartCoroutine(waitThenLoadNextLevel());
         }
     }
@@ -48,6 +44,6 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
 
-        GameManager.LoadNextLevel();
+        GameManager.Instance.LoadNextLevel();
     }
 }

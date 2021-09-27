@@ -11,12 +11,12 @@ public class InputManager : MonoBehaviour
     public GameObject RockPrefab = null;
     public GameObject BaitPrefab = null;
     public Camera MainCamera = null;
-    public GameObject FishPrefab = null;
     public GameObject MinnowPrefab = null;
     private Fish _fish = null;
     //private Minnow[] _minnow = null;
     public int _baitQuantity = 3;
     public int _rockQuantity = 3;
+	public List<GameObject> noBaitZones;
     public BaitDisplay baitDisplay = null;
     public BaitDisplay rockDisplay = null;
     public Bait CurrentBait { get; private set; } = null;
@@ -54,7 +54,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_baitQuantity > 0)
+            if (_baitQuantity > 0 && noBaitZones.TrueForAll(obj => !RectTransformUtility.RectangleContainsScreenPoint(obj.GetComponent<RectTransform>(), Input.mousePosition, MainCamera)))
             {
                 Bait bait = SpawnBait();
                 // _fish.FollowBait(bait);

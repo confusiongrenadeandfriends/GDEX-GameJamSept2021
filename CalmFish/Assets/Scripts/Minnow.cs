@@ -137,7 +137,7 @@ public class Minnow : MonoBehaviour
         Reeds temp = collision.GetComponent<Reeds>();
         if (ReferenceEquals(temp, null) == false)
         {
-            _speed *= 2f;
+            _speed *= 10f;
         }
 
         LillyPad lilly = collision.GetComponent<LillyPad>();
