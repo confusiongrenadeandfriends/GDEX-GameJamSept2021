@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/1-5 Reeds 2.unity
     guid: cbcc3679fdec34c05b968d92317c2330
   - enabled: 1
-    path: Assets/Scenes/1-6 Lilly Pads.unity
+    path: Assets/Scenes/1-6 Lilly Pads 1.unity
+    guid: 4ac6900362cac443b8beed0a8827c8bf
+  - enabled: 1
+    path: Assets/Scenes/1-7 Rocks.unity
     guid: 539442e2e73174d5e827fef1c69dccbd
+  - enabled: 1
+    path: Assets/Scenes/1-x.unity
+    guid: 6766074e659f9074089efe31a8557eff
   m_configObjects: {}
