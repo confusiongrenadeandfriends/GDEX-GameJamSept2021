@@ -10,7 +10,6 @@ public class InputManager : MonoBehaviour
     
     public GameObject RockPrefab = null;
     public GameObject BaitPrefab = null;
-    public Camera MainCamera = null;
     public GameObject MinnowPrefab = null;
     private Fish _fish = null;
     //private Minnow[] _minnow = null;
@@ -54,7 +53,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_baitQuantity > 0 && noBaitZones.TrueForAll(obj => !RectTransformUtility.RectangleContainsScreenPoint(obj.GetComponent<RectTransform>(), Input.mousePosition, MainCamera)))
+            if (_baitQuantity > 0 && noBaitZones.TrueForAll(obj => !RectTransformUtility.RectangleContainsScreenPoint(obj.GetComponent<RectTransform>(), Input.mousePosition, Camera.main)))
             {
                 Bait bait = SpawnBait();
                 // _fish.FollowBait(bait);
@@ -70,6 +69,14 @@ public class InputManager : MonoBehaviour
                 SpawnRock();
             }
         }
+
+        //if (FindObjectOfType<RandomLevel>())
+        //{
+        //    bool isNull = (CurrentBait == null);
+        //    bool isActive = false;
+        //    if (!isNull) isActive = CurrentBait.gameObject.activeSelf;
+        //    Debug.Log($"{isNull}, {isActive}, {_baitQuantity}");
+        //}
 
         if (CurrentBait != null && CurrentBait.gameObject.activeSelf == false)
         {
@@ -92,7 +99,7 @@ public class InputManager : MonoBehaviour
         baitDisplay.DecrementBaitDisplay(_baitQuantity);
         GameObject bait = Instantiate(BaitPrefab, transform);
         Vector3 mousePos = Input.mousePosition;
-        Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         worldPos.z = 1f;
         bait.transform.position = worldPos;
         return bait.GetComponent<Bait>();
@@ -104,7 +111,7 @@ public class InputManager : MonoBehaviour
         rockDisplay.DecrementBaitDisplay(_rockQuantity);
         GameObject rock = Instantiate(RockPrefab, transform);
         Vector3 mousePos = Input.mousePosition;
-        Vector3 worldPos = MainCamera.ScreenToWorldPoint(mousePos);
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         worldPos.z = 1f;
         rock.transform.position = worldPos;
     }

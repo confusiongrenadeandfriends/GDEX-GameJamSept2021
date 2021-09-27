@@ -43,7 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b2cb4c481a24deab807d3fccd6e431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   RockPrefab: {fileID: 2033907700443760877, guid: 256aed7e74200814dad52265790fc8d5, type: 3}
   BaitPrefab: {fileID: 2033907700443760877, guid: 2c79440ed3e4149439b558be862ff514, type: 3}
-  MainCamera: {fileID: 0}
-  FishPrefab: {fileID: 5020023180702562016, guid: e819376aee49f4bcca1a33ead060e7c3, type: 3}
+  MinnowPrefab: {fileID: 6769772844747924698, guid: e150c81b6f2e04c1e9dda1eca2008104, type: 3}
+  _baitQuantity: 3
+  _rockQuantity: 3
+  noBaitZones: []
+  baitDisplay: {fileID: 0}
+  rockDisplay: {fileID: 0}

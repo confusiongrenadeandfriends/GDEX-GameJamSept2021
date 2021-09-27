@@ -8,13 +8,14 @@ public class Level : MonoBehaviour
     private GameManager gameManager;
     private bool levelDone;
     public GameObject tutorialText;
+    private RandomLevel randomLevel;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game").GetComponent<GameManager>();
         levelDone = false;
-        StartCoroutine(waitThenDisableTutorial());
+        if (!TryGetComponent(out randomLevel)) StartCoroutine(waitThenDisableTutorial());
     }
 
     // Update is called once per frame
@@ -27,9 +28,13 @@ public class Level : MonoBehaviour
     {
         if (!levelDone)
         {
-            winText.SetActive(true);
-            levelDone = true;
-            StartCoroutine(waitThenLoadNextLevel());
+            if (randomLevel) randomLevel.ReloadLevel();
+            else
+            {
+                winText.SetActive(true);
+                levelDone = true;
+                StartCoroutine(waitThenLoadNextLevel());
+            }
         }
     }
 
@@ -44,6 +49,6 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
 
-        GameManager.Instance.LoadNextLevel();
+        GameManager.LoadNextLevel();
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - StartButton
   - QuitButton
   - Score
+  - ResetButton
   layers:
   - Default
   - TransparentFX
