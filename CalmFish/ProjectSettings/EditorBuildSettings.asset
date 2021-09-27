@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/1-4 Reeds.unity
     guid: 0ac4383bfb8b445f7ac984cea2d355f9
   - enabled: 1
+    path: Assets/Scenes/1-4-2 No Bait Zone.unity
+    guid: 3b0a4fa99f3cd4108b4fccbd3d303271
+  - enabled: 1
     path: Assets/Scenes/1-5 Reeds 2.unity
     guid: cbcc3679fdec34c05b968d92317c2330
   - enabled: 1
@@ -32,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1-8 Rocks 2.unity
     guid: 539442e2e73174d5e827fef1c69dccbd
+  - enabled: 1
+    path: Assets/Scenes/1-9 BaitRace 1.unity
+    guid: 7e9ba2bcb7c764352bd6332c12177d29
   - enabled: 1
     path: Assets/Scenes/1-10  Lilly Pad Bomb.unity
     guid: 2cb69e073de404a09a73903a870dda7f
