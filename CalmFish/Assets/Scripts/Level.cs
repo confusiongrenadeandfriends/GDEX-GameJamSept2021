@@ -6,11 +6,16 @@ public class Level : MonoBehaviour
 {
     public GameObject winText;
     public GameObject tutorialText;
+    private RandomLevel randomLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(waitThenDisableTutorial());
+        if (TryGetComponent(out randomLevel))
+        {
+            Debug.Log("Found RandomLevel");
+        }
+        else StartCoroutine(waitThenDisableTutorial());
     }
 
     // Update is called once per frame
@@ -21,8 +26,15 @@ public class Level : MonoBehaviour
 
     public void winLevel()
     {
-        winText.SetActive(true);
-        StartCoroutine(waitThenLoadNextLevel());
+        if (randomLevel)
+        {
+            randomLevel.ReloadLevel();
+        }
+        else
+        {
+            winText.SetActive(true);
+            StartCoroutine(waitThenLoadNextLevel());
+        }
     }
 
     private IEnumerator waitThenDisableTutorial()
@@ -36,6 +48,6 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
 
-        GameManager.Instance.LoadNextLevel();
+        GameManager.LoadNextLevel();
     }
 }

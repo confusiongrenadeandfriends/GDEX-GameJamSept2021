@@ -33,6 +33,18 @@ public class InputManager : MonoBehaviour
         if (baitEvent == null)
             baitEvent = new UnityEvent();
 
+        if (FindObjectOfType<RandomLevel>() == false)
+        {
+            baitDisplay.DisplayBait(_baitQuantity);
+            rockDisplay.DisplayBait(_rockQuantity);
+        }
+    }
+
+    internal void RandomLevelQuanityUpdate(int baitQuanity, int rockQuanity)
+    {
+        _baitQuantity = baitQuanity;
+        _rockQuantity = rockQuanity;
+
         baitDisplay.DisplayBait(_baitQuantity);
         rockDisplay.DisplayBait(_rockQuantity);
     }
@@ -61,10 +73,15 @@ public class InputManager : MonoBehaviour
 
         if (CurrentBait != null && CurrentBait.gameObject.activeSelf == false)
         {
-            if (!Won && _baitQuantity <= 0)
+            if (FindObjectOfType<RandomLevel>() && _baitQuantity <= 0)
+            {
+                GameManager.Instance.TitleScreen();
+            } 
+            else if (!Won && _baitQuantity <= 0)
             {
                 GameManager.Instance.ReloadLevel();
             }
+
         }
     }
 

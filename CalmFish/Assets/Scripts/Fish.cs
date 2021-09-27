@@ -66,7 +66,7 @@ public class Fish : MonoBehaviour
                 InputManager.Instance.Won = true;
                 int baitScore = InputManager.Instance._baitQuantity * 10;
                 int rockScore = InputManager.Instance._rockQuantity * 20;
-                GameManager.Instance.Score += baitScore + rockScore + 100;
+                GameManager.Score += baitScore + rockScore + 100;
                 level.winLevel();
                 Debug.Log("win");
             }

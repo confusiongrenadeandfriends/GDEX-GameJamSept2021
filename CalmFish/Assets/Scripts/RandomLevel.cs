@@ -17,6 +17,8 @@ public class RandomLevel : MonoBehaviour
 
         Spawn(numberOfReeds, reedsPrefab, false);
         Spawn(numberOfLilyPads, lilypadPrefab, true);
+
+        InputManager.Instance.RandomLevelQuanityUpdate(GameManager.RandomLevelBaitQuanity, GameManager.RandomLevelRockQuanity);
     }
 
     private void Spawn(int max, GameObject prefab, bool equalScale)
@@ -34,4 +36,20 @@ public class RandomLevel : MonoBehaviour
             else go.transform.localScale = new Vector3(xScale, yScale, 1);
         }
     }
+
+    internal void ReloadLevel()
+    {
+        GameManager.RandomLevelBaitQuanity = InputManager.Instance._baitQuantity;
+        GameManager.RandomLevelRockQuanity = InputManager.Instance._rockQuantity;
+        GameManager.Instance.ReloadLevel();
+    }
+
+    //internal IEnumerator WaitThenReloadLevel()
+    //{
+    //    Debug.Log("Reloading Level");
+    //    yield return new WaitForSeconds(2);
+    //    GameManager.RandomLevelBaitQuanity = InputManager.Instance._baitQuantity;
+    //    GameManager.RandomLevelRockQuanity = InputManager.Instance._rockQuantity;
+    //    GameManager.Instance.ReloadLevel();
+    //}
 }
