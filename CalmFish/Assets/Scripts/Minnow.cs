@@ -5,7 +5,7 @@ using UnityEngine;
 public class Minnow : MonoBehaviour
 {
 
-
+    private Vector3 starting;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +13,9 @@ public class Minnow : MonoBehaviour
         inputManager = GameObject.Find("Game").GetComponent<InputManager>();
 
         inputManager.baitEvent.AddListener(followBait);
+
+
+        starting = this.transform.position;
     }
 
 
@@ -115,15 +118,22 @@ public class Minnow : MonoBehaviour
             Vector3 direction;
             if (rock.IsBorder)
             {
-                direction = (transform.position - transform.parent.position).normalized;
-                Vector3 target = direction + Random.insideUnitSphere;
-                target.z = 0;
-                _randomTarget = transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
+               // direction = (transform.position - transform.parent.position).normalized;
+                //Vector3 target = direction + Random.insideUnitSphere;
+               // target.z = 0;
+                direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f * Time.deltaTime;
+
+                _randomTarget = starting;  // (transform.position - (2 * direction)); // Random.insideUnitSphere; ///Vector3///transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
                 _trackingRandomTarget = true;
 
             }
             else
             {
+                direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f * Time.deltaTime;
+
+                _randomTarget = (transform.position - (2 * direction)); // Random.insideUnitSphere; ///Vector3///transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
+                _trackingRandomTarget = true;
+
                 direction = (transform.position - collision.gameObject.transform.position).normalized * _speed * 10f * Time.deltaTime;
 
                 transform.position -= -direction;

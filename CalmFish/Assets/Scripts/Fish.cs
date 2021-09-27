@@ -113,7 +113,7 @@ public class Fish : MonoBehaviour
                 direction = (transform.position - transform.parent.position).normalized;
                 Vector3 target = direction + Random.insideUnitSphere;
                 target.z = 0;
-                _randomTarget = transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
+                _randomTarget = target; /// transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
                 _trackingRandomTarget = true;
 
             }

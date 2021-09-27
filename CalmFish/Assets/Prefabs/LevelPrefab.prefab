@@ -723,6 +723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockBarrier (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870311, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: IsBorder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
 --- !u!4 &5153473284715145392 stripped
@@ -1022,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockBarrier (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870311, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: IsBorder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
 --- !u!4 &5153473283965269574 stripped
@@ -1092,6 +1100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockBarrier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870311, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: IsBorder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
 --- !u!4 &5153473283120728276 stripped
@@ -1161,6 +1173,10 @@ PrefabInstance:
     - target: {fileID: 6587208431266870310, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
       propertyPath: m_Name
       value: RockBarrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587208431266870311, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
+      propertyPath: IsBorder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11c5c034219aa4851afc5c6c439b72bb, type: 3}
