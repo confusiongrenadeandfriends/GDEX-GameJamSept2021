@@ -1730,6 +1730,14 @@ PrefabInstance:
       propertyPath: _baitQuantity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4166435631158912524, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
+      propertyPath: noBaitZones.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166435631158912524, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
+      propertyPath: noBaitZones.Array.data[0]
+      value: 
+      objectReference: {fileID: 1685296297}
     - target: {fileID: 6640413003466889034, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
       propertyPath: m_Name
       value: LevelPrefab
@@ -2167,6 +2175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e150c81b6f2e04c1e9dda1eca2008104, type: 3}
+--- !u!1 &1685296297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3569952290833868326, guid: d35682f2bf367f74d85e99df3e8d683f, type: 3}
+  m_PrefabInstance: {fileID: 681036719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1694450619
 PrefabInstance:
   m_ObjectHideFlags: 0

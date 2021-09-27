@@ -42,6 +42,9 @@ EditorBuildSettings:
     path: Assets/Scenes/1-10  Lilly Pad Bomb.unity
     guid: 2cb69e073de404a09a73903a870dda7f
   - enabled: 1
+    path: Assets/Scenes/1-11 Pathing.unity
+    guid: 0e5cc732ba2730f4b9ba3f8213782c1a
+  - enabled: 1
     path: Assets/Scenes/1-x.unity
     guid: 6766074e659f9074089efe31a8557eff
   m_configObjects: {}
