@@ -7,12 +7,14 @@ public class Level : MonoBehaviour
     public GameObject winText;
     private GameManager gameManager;
     private bool levelDone;
+    public GameObject tutorialText;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game").GetComponent<GameManager>();
         levelDone = false;
+        StartCoroutine(waitThenDisableTutorial());
     }
 
     // Update is called once per frame
@@ -31,10 +33,17 @@ public class Level : MonoBehaviour
         }
     }
 
+    private IEnumerator waitThenDisableTutorial()
+    {
+        yield return new WaitForSeconds(4);
+
+        tutorialText.SetActive(false);
+    }
+
     private IEnumerator waitThenLoadNextLevel()
     {
         yield return new WaitForSeconds(4);
 
-        gameManager.LoadNextLevel();
+        GameManager.Instance.LoadNextLevel();
     }
 }
