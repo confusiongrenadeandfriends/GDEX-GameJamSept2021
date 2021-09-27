@@ -13,6 +13,8 @@ public class Bait : MonoBehaviour
     {
         GameObject go = Instantiate(Ripple, transform);
         go.transform.position = transform.position;
+
+        Destroy(gameObject, 10);
     }
 
     // Update is called once per frame
