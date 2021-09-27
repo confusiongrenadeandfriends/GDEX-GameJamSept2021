@@ -686,6 +686,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Caught!
       objectReference: {fileID: 0}
+    - target: {fileID: 5751636712596596705, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
+      propertyPath: m_TagString
+      value: ResetButton
+      objectReference: {fileID: 0}
     - target: {fileID: 6640413003466889034, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
       propertyPath: m_Name
       value: LevelPrefab
