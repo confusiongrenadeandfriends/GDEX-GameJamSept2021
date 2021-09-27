@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2084787910301295290, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
       propertyPath: m_Text
-      value: You cannot cast in red areas
+      value: You cannot cast in grey areas
       objectReference: {fileID: 0}
     - target: {fileID: 4166435631158912524, guid: 1327d266860ea4c2dbdd8e23283b36ae, type: 3}
       propertyPath: _baitQuantity
