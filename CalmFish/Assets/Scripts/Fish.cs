@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour
 {
+
+    private Vector3 starting;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,6 +13,8 @@ public class Fish : MonoBehaviour
         _inputManager = GameObject.Find("Game").GetComponent<InputManager>();
         _inputManager.baitEvent.AddListener(followBait);
         renderer = gameObject.GetComponent<SpriteRenderer>();
+
+        starting = this.transform.position;
     }
 
 
@@ -113,7 +117,7 @@ public class Fish : MonoBehaviour
                 direction = (transform.position - transform.parent.position).normalized;
                 Vector3 target = direction + Random.insideUnitSphere;
                 target.z = 0;
-                _randomTarget = target; /// transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
+                _randomTarget = starting;//target; /// transform.parent.position; ////Random.insideUnitSphere + Random.insideUnitSphere; // target;
                 _trackingRandomTarget = true;
 
             }
